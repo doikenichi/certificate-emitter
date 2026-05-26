@@ -1,0 +1,182 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-student-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: student
+            columns:
+              - column:
+                  name: student_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 002-add-student-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: student
+            columnNames: student_id
+            constraintName: pk_student
+
+  - changeSet:
+      id: 002-create-quiz-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: quiz
+            columns:
+              - column:
+                  name: quiz_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 002-add-quiz-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: quiz
+            columnNames: quiz_id
+            constraintName: pk_quiz
+
+  - changeSet:
+      id: 002-create-certificate-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: certificate
+            columns:
+              - column:
+                  name: certificate_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: student_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_issued
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 002-add-certificate-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: certificate
+            columnNames: certificate_id
+            constraintName: pk_certificate
+
+  - changeSet:
+      id: 002-add-certificate-student-unique-constraint
+      author: certificate-emitter
+      changes:
+        - addUniqueConstraint:
+            tableName: certificate
+            columnNames: student_id
+            constraintName: uk_certificate_student
+
+  - changeSet:
+      id: 002-add-certificate-student-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: certificate
+            baseColumnNames: student_id
+            referencedTableName: student
+            referencedColumnNames: student_id
+            constraintName: fk_certificate_student
+
+  - changeSet:
+      id: 002-create-question-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quiz_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: question
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: option_a
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: option_b
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: option_c
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: option_d
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: correct_answer
+                  type: VARCHAR(1)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 002-add-question-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: question
+            columnNames: question_id
+            constraintName: pk_question
+
+  - changeSet:
+      id: 002-add-question-quiz-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: question
+            baseColumnNames: quiz_id
+            referencedTableName: quiz
+            referencedColumnNames: quiz_id
+            constraintName: fk_question_quiz

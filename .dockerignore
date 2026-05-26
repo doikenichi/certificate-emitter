@@ -1,0 +1,14 @@
+.git
+.gradle
+.idea
+build
+out
+node_modules
+frontend/node_modules
+frontend/dist
+tmp
+tokens
+*.iml
+HELP.md
+src/main/resources/credentials.json
+src/main/resources/credentials_or.json

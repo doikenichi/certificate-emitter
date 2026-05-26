@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-student-sequence
+      author: certificate-emitter
+      changes:
+        - createSequence:
+            sequenceName: student_sequence
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: 001-create-quiz-sequence
+      author: certificate-emitter
+      changes:
+        - createSequence:
+            sequenceName: quiz_sequence
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: 001-create-certificate-sequence
+      author: certificate-emitter
+      changes:
+        - createSequence:
+            sequenceName: certificate_sequence
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: 001-create-question-sequence
+      author: certificate-emitter
+      changes:
+        - createSequence:
+            sequenceName: question_sequence
+            startValue: 1
+            incrementBy: 1

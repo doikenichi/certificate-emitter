@@ -1,0 +1,126 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-take-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: take
+            columns:
+              - column:
+                  name: student_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quiz_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: score
+                  type: INTEGER
+              - column:
+                  name: date_taken
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_approved
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 003-add-take-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: take
+            columnNames: student_id, quiz_id
+            constraintName: pk_take
+
+  - changeSet:
+      id: 003-add-take-student-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: take
+            baseColumnNames: student_id
+            referencedTableName: student
+            referencedColumnNames: student_id
+            constraintName: fk_take_student
+
+  - changeSet:
+      id: 003-add-take-quiz-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: take
+            baseColumnNames: quiz_id
+            referencedTableName: quiz
+            referencedColumnNames: quiz_id
+            constraintName: fk_take_quiz
+
+  - changeSet:
+      id: 003-create-response-table
+      author: certificate-emitter
+      changes:
+        - createTable:
+            tableName: response
+            columns:
+              - column:
+                  name: student_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quiz_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: question_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: response
+                  type: VARCHAR(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_correct
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 003-add-response-primary-key
+      author: certificate-emitter
+      changes:
+        - addPrimaryKey:
+            tableName: response
+            columnNames: student_id, quiz_id, question_id
+            constraintName: pk_response
+
+  - changeSet:
+      id: 003-add-response-take-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: response
+            baseColumnNames: student_id, quiz_id
+            referencedTableName: take
+            referencedColumnNames: student_id, quiz_id
+            constraintName: fk_response_take
+
+  - changeSet:
+      id: 003-add-response-question-foreign-key
+      author: certificate-emitter
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: response
+            baseColumnNames: question_id
+            referencedTableName: question
+            referencedColumnNames: question_id
+            constraintName: fk_response_question

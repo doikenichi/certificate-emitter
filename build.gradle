@@ -1,0 +1,120 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
+}
+
+group = 'com.br.shizen'
+version = '0.0.1-SNAPSHOT'
+description = 'certificate-emitter'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+jacoco {
+    toolVersion = "$jacocoVersion"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    // Development runtime support
+    developmentOnly('org.springframework.boot:spring-boot-devtools')
+
+    // lombok
+    // Source: https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+    //email
+    // Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+
+    // google
+    // Source: https://mvnrepository.com/artifact/com.google.api-client/google-api-client
+    implementation("com.google.api-client:google-api-client:2.9.0")
+    // Source: https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty
+    implementation("com.google.oauth-client:google-oauth-client-jetty:1.39.0")
+    // google drive
+    implementation("com.google.apis:google-api-services-drive:v3-rev20260428-2.0.0") {
+        because("1.25.x generated Google API service jars reject google-api-client 2.x at runtime")
+    }
+    //gmail
+    implementation("com.google.apis:google-api-services-gmail:v1-rev20260427-2.0.0") {
+        because("1.25.x generated Google API service jars reject google-api-client 2.x at runtime")
+    }
+
+    // jpa
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // postgresql
+    // Source: https://mvnrepository.com/artifact/org.postgresql/postgresql
+    runtimeOnly("org.postgresql:postgresql:42.7.11")
+    implementation("org.springframework.boot:spring-boot-starter-liquibase")
+
+    // editing ms office files
+    // Source: https://mvnrepository.com/artifact/com.github.ozlerhakan/poiji
+    implementation("com.github.ozlerhakan:poiji:5.4.0")
+
+    // Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind
+    implementation("tools.jackson.core:jackson-databind:3.1.3")
+
+    // swagger
+    // Source: https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.3")
+
+    // testing
+    implementation(platform("org.jacoco:jacoco:$jacocoVersion"))
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-mail-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+
+tasks.named('jacocoTestReport') {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+tasks.named('jacocoTestCoverageVerification') {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.5
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+}
