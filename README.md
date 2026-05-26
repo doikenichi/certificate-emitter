@@ -4,7 +4,7 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.6-6DB33F)
 ![React](https://img.shields.io/badge/React-19.2.6-61DAFB)
 ![Build](https://img.shields.io/badge/build-TODO-lightgrey)
-![License](https://img.shields.io/badge/license-TODO-lightgrey)
+![License](https://img.shields.io/badge/license-%20%20GNU%20GPLv3%20-green?style=plastic)
 
 Certificate Emitter is a Spring Boot and React web application for issuing course certificates from student answer sheets. A user provides the Google Drive file names for an answer spreadsheet, a DOCX certificate template, and an HTML email template. The backend downloads the files, scores each student against the configured quiz, generates certificates for approved students, converts the rendered DOCX files to PDF with Gotenberg, and emails the PDF certificates to the students.
 
