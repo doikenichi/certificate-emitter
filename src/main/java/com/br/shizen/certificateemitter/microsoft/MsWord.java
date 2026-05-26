@@ -18,7 +18,7 @@ public class MsWord {
     private FileInputStream wordReadFile;
     private FileOutputStream wordWriteFile;
 
-     private static final String MAIN_DOCUMENT_PATH = "word/document.xml";
+    private static final String MAIN_DOCUMENT_PATH = "word/document.xml";
     private static final String TEMPLATE_DIRECTORY_ROOT = "TEMPLATES_DIRECTORY/";
 
 

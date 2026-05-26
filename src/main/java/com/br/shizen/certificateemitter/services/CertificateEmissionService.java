@@ -1,10 +1,6 @@
 package com.br.shizen.certificateemitter.services;
 
-import com.br.shizen.certificateemitter.dto.CertificateEmissionResult;
-import com.br.shizen.certificateemitter.dto.CertificateImportRequest;
-import com.br.shizen.certificateemitter.dto.EmailSendResult;
-import com.br.shizen.certificateemitter.dto.EmailTemplate;
-import com.br.shizen.certificateemitter.dto.ImportError;
+import com.br.shizen.certificateemitter.dto.*;
 import com.br.shizen.certificateemitter.dto.answersheet.AnswerSheetImportResult;
 import com.br.shizen.certificateemitter.dto.answersheet.AnswerSheetResult;
 import com.br.shizen.certificateemitter.dto.certificate.CertificateIssueStatus;

@@ -3,7 +3,7 @@ package com.br.shizen.certificateemitter.services.answersheet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PercentageScoreCalculator  implements ScoreCalculator {
+public class PercentageScoreCalculator implements ScoreCalculator {
 
     @Override
     public int calculate(int correctAnswers, int totalQuestions) {

@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class ResponseId  implements Serializable {
+public class ResponseId implements Serializable {
 
     @Embedded
     private TakeId takeId = new TakeId();

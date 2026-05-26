@@ -87,7 +87,7 @@ public class GoogleMail extends Google {
      * @param emailContent Email to be sent.
      * @return The sent message
      * @throws MessagingException error on creating the message
-     * @throws IOException file not available
+     * @throws IOException        file not available
      */
     public Message sendMessage(String userId,
                                MimeMessage emailContent)
@@ -102,7 +102,7 @@ public class GoogleMail extends Google {
      *
      * @param emailContent Email to be set to raw of message
      * @return a message containing a base64url encoded email
-     * @throws IOException file not available
+     * @throws IOException        file not available
      * @throws MessagingException error on creating the message
      */
     public Message createMessageWithEmail(MimeMessage emailContent)

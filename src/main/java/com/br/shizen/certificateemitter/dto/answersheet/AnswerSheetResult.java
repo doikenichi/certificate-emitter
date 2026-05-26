@@ -3,7 +3,6 @@ package com.br.shizen.certificateemitter.dto.answersheet;
 import com.br.shizen.certificateemitter.entity.Response;
 import com.br.shizen.certificateemitter.entity.Student;
 import com.br.shizen.certificateemitter.entity.Take;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -3,18 +3,17 @@ package com.br.shizen.certificateemitter.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "question")
 public class Question {
     @Id
-    @SequenceGenerator(name="Question_Generator", sequenceName="question_sequence", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Question_Generator")
+    @SequenceGenerator(name = "Question_Generator", sequenceName = "question_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Question_Generator")
     @Column(name = "question_id", nullable = false)
     private Long Id;
 
-    @JsonIgnoreProperties({"name","description", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties({"name", "description", "hibernateLazyInitializer"})
     @JoinColumn(name = "quiz_id", referencedColumnName = "quiz_id", nullable = false)
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private Quiz quiz;

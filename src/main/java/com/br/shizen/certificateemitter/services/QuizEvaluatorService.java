@@ -1,7 +1,8 @@
 package com.br.shizen.certificateemitter.services;
 
-import com.br.shizen.certificateemitter.entity.Response;
-import com.br.shizen.certificateemitter.repository.*;
+import com.br.shizen.certificateemitter.repository.ResponseRepository;
+import com.br.shizen.certificateemitter.repository.StudentRepository;
+import com.br.shizen.certificateemitter.repository.TakeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

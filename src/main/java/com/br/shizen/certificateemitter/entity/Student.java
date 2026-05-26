@@ -10,8 +10,8 @@ public class Student {
 
     @Getter
     @Id
-    @SequenceGenerator(name="Student_Generator", sequenceName="student_sequence", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Student_Generator")
+    @SequenceGenerator(name = "Student_Generator", sequenceName = "student_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Student_Generator")
     @Column(name = "student_id", nullable = false)
     private Long id;
 

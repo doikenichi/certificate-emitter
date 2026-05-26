@@ -25,7 +25,7 @@ public class Take {
 
     @Getter
     @Setter
-    @JsonIgnoreProperties({"name","description", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties({"name", "description", "hibernateLazyInitializer"})
     @MapsId("quizId")
     @JoinColumn(name = "quiz_id", referencedColumnName = "quiz_id", nullable = false)
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
@@ -44,5 +44,5 @@ public class Take {
     @Getter
     @Setter
     @Column(name = "is_approved", nullable = false)
-    private boolean isApproved  ;
+    private boolean isApproved;
 }

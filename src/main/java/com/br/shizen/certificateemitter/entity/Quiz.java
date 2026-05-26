@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Quiz {
 
     @Id
-    @SequenceGenerator(name="Quiz_Generator", sequenceName="quiz_sequence", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Quiz_Generator")
+    @SequenceGenerator(name = "Quiz_Generator", sequenceName = "quiz_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Quiz_Generator")
     @Column(name = "quiz_id", nullable = false)
     private Long id;
 
