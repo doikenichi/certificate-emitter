@@ -672,15 +672,6 @@ Do not assume the current compose file is production-ready without addressing th
 - Keep `tokens/` out of source control.
 - Review Google API scopes before production use; the current Drive scope is broad.
 
-## Known Limitations / TODOs
-
-- TODO: Add CI and replace the build badge placeholder.
-- TODO: Confirm production Google OAuth strategy for Docker/non-interactive deployments.
-- TODO: Add explicit validation/error handling for missing Google Drive answer sheets; `AnswerSheetProvider` currently assumes at least one result.
-- TODO: Document a stable answer-sheet template file for users.
-- TODO: Review startup behavior that empties Google Drive trash.
-- TODO: Confirm API validation response format for malformed or blank requests.
-
 ## Contributing
 
 1. Create a focused branch.
