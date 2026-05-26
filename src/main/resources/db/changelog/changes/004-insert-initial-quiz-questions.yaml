@@ -1,0 +1,399 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-insert-certificate-exam-quiz
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: quiz
+            columns:
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: name
+                  value: final certificate exam
+              - column:
+                  name: description
+                  value: final certificate exam of shiatsu course
+      rollback:
+        - delete:
+            tableName: quiz
+            where: quiz_id = 1
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-001
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "1"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: What does the word "Shiatsu" literally mean?
+              - column:
+                  name: option_a
+                  value: Energy healing
+              - column:
+                  name: option_b
+                  value: Finger pressure
+              - column:
+                  name: option_c
+                  value: Body stretching
+              - column:
+                  name: option_d
+                  value: Gentle massage
+              - column:
+                  name: correct_answer
+                  value: b
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 1
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-002
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "2"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Shiatsu originated in which country?
+              - column:
+                  name: option_a
+                  value: China
+              - column:
+                  name: option_b
+                  value: Japan
+              - column:
+                  name: option_c
+                  value: India
+              - column:
+                  name: option_d
+                  value: Thailand
+              - column:
+                  name: correct_answer
+                  value: b
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 2
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-003
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "3"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: What is the main technique used in Shiatsu?
+              - column:
+                  name: option_a
+                  value: Rapid tapping
+              - column:
+                  name: option_b
+                  value: Deep tissue friction
+              - column:
+                  name: option_c
+                  value: Applying pressure with fingers, palms, or thumbs
+              - column:
+                  name: option_d
+                  value: Hot stone placement
+              - column:
+                  name: correct_answer
+                  value: c
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 3
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-004
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "4"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Shiatsu is commonly based on the concept of balancing what?
+              - column:
+                  name: option_a
+                  value: Blood sugar
+              - column:
+                  name: option_b
+                  value: Muscle size
+              - column:
+                  name: option_c
+                  value: Qi or energy flow
+              - column:
+                  name: option_d
+                  value: Bone density
+              - column:
+                  name: correct_answer
+                  value: c
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 4
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-005
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "5"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Which system is often used in Shiatsu to guide treatment areas?
+              - column:
+                  name: option_a
+                  value: Meridian system
+              - column:
+                  name: option_b
+                  value: Nervous reflex chart only
+              - column:
+                  name: option_c
+                  value: Cardiovascular map
+              - column:
+                  name: option_d
+                  value: Skeletal alignment chart
+              - column:
+                  name: correct_answer
+                  value: a
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 5
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-006
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "6"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: "During a traditional Shiatsu session, the client is usually:"
+              - column:
+                  name: option_a
+                  value: Fully clothed
+              - column:
+                  name: option_b
+                  value: Covered in oil
+              - column:
+                  name: option_c
+                  value: Sitting in a sauna
+              - column:
+                  name: option_d
+                  value: Exercising actively
+              - column:
+                  name: correct_answer
+                  value: a
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 6
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-007
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "7"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Which of the following is a common goal of Shiatsu?
+              - column:
+                  name: option_a
+                  value: Increasing hair growth
+              - column:
+                  name: option_b
+                  value: Supporting relaxation and reducing tension
+              - column:
+                  name: option_c
+                  value: Replacing medical diagnosis
+              - column:
+                  name: option_d
+                  value: Building muscle mass quickly
+              - column:
+                  name: correct_answer
+                  value: b
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 7
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-008
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "8"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Which body part is commonly used by the practitioner in Shiatsu?
+              - column:
+                  name: option_a
+                  value: Thumbs
+              - column:
+                  name: option_b
+                  value: Elbows only
+              - column:
+                  name: option_c
+                  value: Knees only
+              - column:
+                  name: option_d
+                  value: Forehead
+              - column:
+                  name: correct_answer
+                  value: a
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 8
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-009
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "9"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: "Shiatsu pressure is generally applied:"
+              - column:
+                  name: option_a
+                  value: Randomly and quickly
+              - column:
+                  name: option_b
+                  value: With steady, controlled pressure
+              - column:
+                  name: option_c
+                  value: Only with machines
+              - column:
+                  name: option_d
+                  value: Only on the face
+              - column:
+                  name: correct_answer
+                  value: b
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 9
+
+  - changeSet:
+      id: 004-insert-certificate-exam-question-010
+      author: certificate-emitter
+      changes:
+        - insert:
+            tableName: question
+            columns:
+              - column:
+                  name: question_id
+                  valueNumeric: "10"
+              - column:
+                  name: quiz_id
+                  valueNumeric: "1"
+              - column:
+                  name: question
+                  value: Which statement about Shiatsu is most accurate?
+              - column:
+                  name: option_a
+                  value: It is always painful
+              - column:
+                  name: option_b
+                  value: It is only used for athletes
+              - column:
+                  name: option_c
+                  value: It is a Japanese bodywork therapy using pressure and energy-balancing principles
+              - column:
+                  name: option_d
+                  value: It requires the client to perform intense exercise
+              - column:
+                  name: correct_answer
+                  value: c
+      rollback:
+        - delete:
+            tableName: question
+            where: question_id = 10
+
+  - changeSet:
+      id: 004-align-quiz-question-sequences
+      author: certificate-emitter
+      changes:
+        - sql:
+            dbms: postgresql
+            sql: SELECT setval('quiz_sequence', 1, true)
+        - sql:
+            dbms: postgresql
+            sql: SELECT setval('question_sequence', 10, true)
+      rollback:
+        - sql:
+            dbms: postgresql
+            sql: SELECT setval('quiz_sequence', 1, false)
+        - sql:
+            dbms: postgresql
+            sql: SELECT setval('question_sequence', 1, false)

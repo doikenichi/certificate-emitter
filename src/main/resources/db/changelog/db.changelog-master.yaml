@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-sequences.yaml
+  - include:
+      file: db/changelog/changes/002-create-core-tables.yaml
+  - include:
+      file: db/changelog/changes/003-create-association-tables.yaml
+  - include:
+      file: db/changelog/changes/004-insert-initial-quiz-questions.yaml
+#  - include:
+#      file: db/changelog/changes/005-repair-certificate-schema.yaml

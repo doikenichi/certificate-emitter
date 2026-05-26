@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+}
+
+/* CSS only for examples not required for centering */
+.container {
+    height: 100%;
+}
+
+.h-45 {
+    height: 45%;
+}
+
+.h-05 {
+    height: 5%;
+}
+
+#logsaqui {
+    background-color: black;
+    color: forestgreen;
+}
